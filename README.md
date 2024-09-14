@@ -1,3 +1,3 @@
-# snackchat
+# SnackChat
 
-A new Flutter project.
+flutter create --empty snackchat --platforms android, ios
