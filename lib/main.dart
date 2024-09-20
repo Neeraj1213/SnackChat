@@ -1,4 +1,7 @@
+import "explore.dart";
+import "home.dart";
 import "package:flutter/material.dart";
+import "settings.dart";
 
 void main() {
     runApp(const MainApp());
@@ -29,9 +32,9 @@ class _MainAppState extends State<MainApp> {
                     controller: pageController,
                     onPageChanged: (currPage) => setState( () => currIndex = currPage ),
                     children: const [
-                        Center( child: Text( "Home" ) ),
-                        Center( child: Text( "Explore" ) ),
-                        Center( child: Text( "Settings" ) )
+                        HomePage(),
+                        ExplorePage(),
+                        SettingsPage()
                     ]
                 ),
                 bottomNavigationBar: BottomNavigationBar(
