@@ -58,7 +58,16 @@ class _MainAppState extends State<MainApp> {
                         pageController.jumpToPage( currIndex );
                     }
                 )
-            )
+            ),
+            theme: ThemeData(
+                appBarTheme: const AppBarTheme(
+                    color: Colors.green,
+                    foregroundColor: Colors.yellow
+                ),
+                bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+                    backgroundColor: Colors.green
+                )
+            ),
         );
     }
 }
