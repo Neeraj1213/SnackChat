@@ -65,7 +65,12 @@ class _MainAppState extends State<MainApp> {
                     foregroundColor: Colors.yellow
                 ),
                 bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-                    backgroundColor: Colors.green
+                    backgroundColor: Colors.green,
+                    selectedItemColor: Colors.yellow
+                ),
+                floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.yellow
                 )
             ),
         );
