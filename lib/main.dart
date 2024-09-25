@@ -25,6 +25,16 @@ class _MainAppState extends State<MainApp> {
             debugShowCheckedModeBanner: false,
             home: Scaffold(
                 appBar: AppBar(
+                    actions: [
+                        IconButton(
+                            icon: const Icon( Icons.person ),
+                            onPressed: () {},
+                        ),
+                        IconButton(
+                            icon: const Icon( Icons.message ),
+                            onPressed: () {},
+                        )
+                    ],
                     centerTitle: true,
                     title: const Text( "SnackChat" )
                 ),
