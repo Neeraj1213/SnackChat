@@ -71,6 +71,16 @@ class _MainAppState extends State<MainApp> {
                 floatingActionButtonTheme: const FloatingActionButtonThemeData(
                     backgroundColor: Colors.green,
                     foregroundColor: Colors.yellow
+                ),
+                snackBarTheme: const SnackBarThemeData(
+                    backgroundColor: Colors.green,
+                    actionTextColor: Colors.yellow
+                ),
+                textButtonTheme: const TextButtonThemeData(
+                    style: ButtonStyle(
+                        backgroundColor: WidgetStatePropertyAll( Colors.green ),
+                        foregroundColor: WidgetStatePropertyAll( Colors.yellow )
+                    )
                 )
             ),
         );
