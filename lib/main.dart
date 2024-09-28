@@ -1,4 +1,4 @@
-import "explore.dart";
+import "message.dart";
 import "home.dart";
 import "package:flutter/material.dart";
 import "package:shared_preferences/shared_preferences.dart";
@@ -43,7 +43,7 @@ class _MainAppState extends State<MainApp> {
                     onPageChanged: (currPage) => setState( () => currIndex = currPage ),
                     children: [
                         const HomePage(),
-                        const ExplorePage(),
+                        MessagePage( settings: widget.settings ),
                         SettingsPage( settings: widget.settings )
                     ]
                 ),
@@ -55,8 +55,8 @@ class _MainAppState extends State<MainApp> {
                             label: "Home"
                         ),
                         BottomNavigationBarItem(
-                            icon: Icon( Icons.explore ),
-                            label: "Explore"
+                            icon: Icon( Icons.message ),
+                            label: "Message"
                         ),
                         BottomNavigationBarItem(
                             icon: Icon( Icons.settings ),

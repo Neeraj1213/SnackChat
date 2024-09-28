@@ -1,14 +1,29 @@
 import "package:flutter/material.dart";
 import "package:share_plus/share_plus.dart";
+import "package:shared_preferences/shared_preferences.dart";
 
-class ExplorePage extends StatefulWidget {
-    const ExplorePage({super.key});
+class MessagePage extends StatefulWidget {
+    const MessagePage({
+        super.key,
+        required this.settings
+    });
+
+    final SharedPreferences settings;
 
     @override
-    State<ExplorePage> createState() => _ExplorePageState();
+    State<MessagePage> createState() => _MessagePageState();
 }
 
-class _ExplorePageState extends State<ExplorePage> {
+class _MessagePageState extends State<MessagePage> {
+
+    late bool feelingHungry;
+
+    @override
+    void initState() {
+        super.initState();
+
+        feelingHungry = widget.settings.getBool("feelingHungry") ?? true;
+    }
 
     @override
     Widget build(BuildContext context) {
@@ -16,7 +31,7 @@ class _ExplorePageState extends State<ExplorePage> {
             body: Center(
                 child: TextButton(
                     onPressed: () async {
-                        final result = await Share.share( "I love USF GDSC!" );
+                        final result = await Share.share( feelingHungry ? "I NEED SNACKS!!!" : "I STILL NEED SNACKS!!!" );
                         if( context.mounted && result.status == ShareResultStatus.success ) {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
@@ -30,7 +45,8 @@ class _ExplorePageState extends State<ExplorePage> {
                             );
                         }
                     },
-                    child: const Text( "Share" )
+                    style: const ButtonStyle( fixedSize: WidgetStatePropertyAll( Size( 250, 50 ) ) ),
+                    child: const Text( "Share snack status" )
                 )
             )
         );

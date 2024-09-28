@@ -15,13 +15,13 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
 
-    late bool feelingHappy;
+    late bool feelingHungry;
 
     @override
     void initState() {
         super.initState();
 
-        feelingHappy = widget.settings.getBool("feelingHappy") ?? true;
+        feelingHungry = widget.settings.getBool("feelingHungry") ?? true;
     }
 
     @override
@@ -31,14 +31,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: ListView(
                     shrinkWrap: true,
                     children: [
-                        Icon( feelingHappy ? Icons.mood : Icons.mood_bad, size: 250 ),
+                        Icon( feelingHungry ? Icons.sentiment_very_dissatisfied : Icons.sentiment_very_satisfied, size: 250 ),
                         ListTile(
-                            title: const Text( "Feeling happy?" ),
+                            title: const Text( "Feeling hungry?" ),
                             trailing: Switch(
-                                value: feelingHappy,
+                                value: feelingHungry,
                                 onChanged: (value) {
-                                    setState( () => feelingHappy = value );
-                                    widget.settings.setBool("feelingHappy", value);
+                                    setState( () => feelingHungry = value );
+                                    widget.settings.setBool( "feelingHungry", value );
                                 },
                             )
                         )
