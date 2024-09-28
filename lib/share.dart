@@ -2,8 +2,8 @@ import "package:flutter/material.dart";
 import "package:share_plus/share_plus.dart";
 import "package:shared_preferences/shared_preferences.dart";
 
-class MessagePage extends StatefulWidget {
-    const MessagePage({
+class SharePage extends StatefulWidget {
+    const SharePage({
         super.key,
         required this.settings
     });
@@ -11,10 +11,10 @@ class MessagePage extends StatefulWidget {
     final SharedPreferences settings;
 
     @override
-    State<MessagePage> createState() => _MessagePageState();
+    State<SharePage> createState() => _SharePageState();
 }
 
-class _MessagePageState extends State<MessagePage> {
+class _SharePageState extends State<SharePage> {
 
     late bool feelingHungry;
 

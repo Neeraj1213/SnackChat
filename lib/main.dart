@@ -1,8 +1,8 @@
-import "message.dart";
 import "home.dart";
 import "package:flutter/material.dart";
 import "package:shared_preferences/shared_preferences.dart";
 import "settings.dart";
+import "share.dart";
 
 void main() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +43,7 @@ class _MainAppState extends State<MainApp> {
                     onPageChanged: (currPage) => setState( () => currIndex = currPage ),
                     children: [
                         const HomePage(),
-                        MessagePage( settings: widget.settings ),
+                        SharePage( settings: widget.settings ),
                         SettingsPage( settings: widget.settings )
                     ]
                 ),
@@ -55,8 +55,8 @@ class _MainAppState extends State<MainApp> {
                             label: "Home"
                         ),
                         BottomNavigationBarItem(
-                            icon: Icon( Icons.message ),
-                            label: "Message"
+                            icon: Icon( Icons.share ),
+                            label: "Share"
                         ),
                         BottomNavigationBarItem(
                             icon: Icon( Icons.settings ),
