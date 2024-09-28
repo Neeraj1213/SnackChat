@@ -1,14 +1,24 @@
 import "explore.dart";
 import "home.dart";
 import "package:flutter/material.dart";
+import "package:shared_preferences/shared_preferences.dart";
 import "settings.dart";
 
-void main() {
-    runApp(const MainApp());
+void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+
+    final settings = await SharedPreferences.getInstance();
+
+    runApp( MainApp( settings: settings ) );
 }
 
 class MainApp extends StatefulWidget {
-    const MainApp({super.key});
+    const MainApp({
+        super.key,
+        required this.settings
+    });
+
+    final SharedPreferences settings;
 
     @override
     State<MainApp> createState() => _MainAppState();
@@ -31,10 +41,10 @@ class _MainAppState extends State<MainApp> {
                 body: PageView(
                     controller: pageController,
                     onPageChanged: (currPage) => setState( () => currIndex = currPage ),
-                    children: const [
-                        HomePage(),
-                        ExplorePage(),
-                        SettingsPage()
+                    children: [
+                        const HomePage(),
+                        const ExplorePage(),
+                        SettingsPage( settings: widget.settings )
                     ]
                 ),
                 bottomNavigationBar: BottomNavigationBar(
@@ -75,6 +85,9 @@ class _MainAppState extends State<MainApp> {
                 snackBarTheme: const SnackBarThemeData(
                     backgroundColor: Colors.green,
                     actionTextColor: Colors.yellow
+                ),
+                switchTheme: SwitchThemeData(
+                    trackColor: WidgetStateProperty.resolveWith( (states) => states.contains(WidgetState.selected) ? Colors.green : null ),
                 ),
                 textButtonTheme: const TextButtonThemeData(
                     style: ButtonStyle(
