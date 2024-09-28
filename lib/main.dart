@@ -16,8 +16,8 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
 
-    int currIndex = 1;
-    final pageController = PageController( initialPage: 1 );
+    int currIndex = 0;
+    final pageController = PageController( initialPage: 0 );
 
     @override
     Widget build(BuildContext context) {
