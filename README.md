@@ -4,6 +4,4 @@ flutter create --empty snackchat --platforms android, ios
 
 flutter pub add share_plus
 
-flutter pub add permission_handler
-
-flutter pub add gal
+flutter pub add shared_preferences
